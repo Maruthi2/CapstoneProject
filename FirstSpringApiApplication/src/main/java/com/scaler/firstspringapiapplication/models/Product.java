@@ -1,6 +1,8 @@
 package com.scaler.firstspringapiapplication.models;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import lombok.Getter;
 import lombok.Setter;
@@ -13,6 +15,7 @@ public class Product extends BaseModel {
     private String description;
     private double price;
     private String image;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn
     private Category category;
 }
