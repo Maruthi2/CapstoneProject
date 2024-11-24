@@ -4,13 +4,14 @@ import com.scaler.firstspringapiapplication.models.Category;
 import com.scaler.firstspringapiapplication.models.Product;
 import com.scaler.firstspringapiapplication.repositories.CategoryRepository;
 import com.scaler.firstspringapiapplication.repositories.ProductRepository;
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
 @Service("selfProductService")
-//@Primary
+@Primary
 public class SelfProductService implements ProductService {
     private ProductRepository productRepository;
     private CategoryRepository categoryRepository;
@@ -46,8 +47,8 @@ public class SelfProductService implements ProductService {
         Category category = product.getCategory();
         if (category.getId() == null) {
             //we need to save the category
-            Category savedCategory = categoryRepository.save(category);
-            product.setCategory(savedCategory);
+//            Category savedCategory = categoryRepository.save(category);
+//            product.setCategory(savedCategory);
         } else {
             //we should check if the category id is valid or not.
         }

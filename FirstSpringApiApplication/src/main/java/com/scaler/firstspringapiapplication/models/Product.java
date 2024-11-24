@@ -15,7 +15,9 @@ public class Product extends BaseModel {
     private String description;
     private double price;
     private String image;
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn
     private Category category;
+    private int qty;
+    private int numberOfOrders;
 }
